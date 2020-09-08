@@ -1,0 +1,14 @@
+/* formerly in layout.css */
+
+nav { 
+  font-family: 'Source Sans Pro', sans-serif;
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 1.5em;
+}
+
+span {
+  font-family: 'Bungee', cursive;
+}
