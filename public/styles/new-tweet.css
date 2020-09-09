@@ -1,0 +1,32 @@
+#tweet-text {
+  border-color: transparent;
+  border-bottom: solid;
+  /* font-weight: bold; */
+  background-color: #f4f1ec;
+  
+}
+
+form {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.main_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'Bungee', cursive;
+}
+
+.error {
+  color: red;
+}
+
+#tweet_it {
+  color: #FFFFFF;
+  background-color: #4056A1;
+  
+}

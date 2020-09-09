@@ -15,13 +15,45 @@ html {
  */
 
 body {
+  margin-top: 115px; /*top margin to avoid overlay caused by fixed navbar*/
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+main {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f4f1ec;
+  margin: auto;
+}
 
+.tweet-lib article {
+  border: solid;
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet-lib article header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f4f1ec;
+  height: 3em;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.hover {
+  box-shadow: 5px 5px 2px 1px #406ED4;
+}
+.text_hover {
+  color: #406ED4;
+  font-weight: bold;
+}
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
