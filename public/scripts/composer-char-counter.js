@@ -13,14 +13,14 @@ $(document).ready(function() {
     // $( this ).parent().children(“div”).children(“.counter”).val(charLeft)?
   })
 
-  $('article').mouseover(function() {
-    $(this).addClass('hover');
-    $(this).find('div').addClass('text_hover');
-  })
-  $('article').mouseout(function() {
-    $(this).removeClass('hover');
-    $(this).find('div').removeClass('text_hover');
-  })
+  // $('article').mouseover(function() {
+  //   $(this).addClass('hover');
+  //   $(this).find('div').addClass('text_hover');
+  // })
+  // $('article').mouseout(function() {
+  //   $(this).removeClass('hover');
+  //   $(this).find('div').removeClass('text_hover');
+  // })
 
 
 });

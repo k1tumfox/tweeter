@@ -31,14 +31,22 @@
 // ]
 
 const renderTweets = (tweets) => { //takes in tweet library array of objs
-  for (let tweet of tweets) {
+  for (let tweet of tweets.reverse()) {
     
     let allTweets = '';
     // console.log(tweet);
-    allTweets += createTweetElement(tweet);
+    allTweets = createTweetElement(tweet);
     $('.tweet-lib').append(allTweets); // returns tweet article containing
     
   }
+  $('article').mouseover(function() {
+    $(this).addClass('hover');
+    $(this).find('div').addClass('text_hover');
+  })
+  $('article').mouseout(function() {
+    $(this).removeClass('hover');
+    $(this).find('div').removeClass('text_hover');
+  })
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
@@ -56,7 +64,7 @@ const createTweetElement = (tweet) => {
       <header>
         <div class="left-head"><img src="${tweet.user.avatars}"></div>
         <div class="left-head">${tweet.user.name}</div>
-        <div>@${tweet.user.handle}</div>
+        <div>${tweet.user.handle}</div>
       </header>
       <p>
         ${tweet.content.text}
@@ -79,8 +87,6 @@ const createTweetElement = (tweet) => {
 $(document).ready( () => {
   const loadTweets = () => {
     $.ajax({url: "/tweets", method: 'GET'}).then(response => {
-      // const tweets = response; //array of obj ?
-      // console.log(allTheTweets);
       renderTweets(response);
       
       //JSON.parse();
@@ -88,18 +94,35 @@ $(document).ready( () => {
   }
   loadTweets();
 
-  // renderTweets(data);
-  // // $('form').on('submit', (evt) => {
-  // $('form').submit((evt) => {
-  //   evt.preventDefault();
-  //   const formData = $('form').serialize()
-  //   $.ajax({url: "/tweets", method: 'POST', data: formData}).then(response => {
-  //     console.log("submit promise running\n", response);
-  //     renderTweets(response);
-  //     // renderTweets(response[0]);
-      
-  //   })
-  // })
+  // renderTweets(data); //for hardcoded tweet db
+  // $('form').on('submit', (evt) => {
+  $('form').submit((evt) => {
+    evt.preventDefault();
+    // alert($('#tweet-text').val);
+    // console.log($('#tweet-text').val().length);
+    
+    if (!$('#tweet-text').val()) {
+      alert("Please ensure your submission is not empty.");
+      return;
+    } else if ($('#tweet-text').val().length > 140) {
+      alert("Your chirp must not exceed 140 characters.");
+      return;
+    } else {
+      const formData = $('form').serialize()//converts so the server can understand
+      $.ajax({url: "/tweets", method: 'POST', data: formData}).then(response => {
+        // alert($('#tweet-text').val());
+        
+        // renderTweets(response);
+        $.ajax({url: "/tweets", method: 'GET'}).then(response => {
+          $('.tweet-lib').empty();
+          renderTweets(response);
+          
+        })
+        
+      })
+    }
+    
+  })
 })
 
 

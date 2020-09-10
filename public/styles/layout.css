@@ -67,6 +67,15 @@ main {
   font-weight: bold;
 }
 
+/*colon below denotes pseudo code way of implementing hover*/
+/* article.hover:hover{
+  box-shadow: 5px 5px 2px 1px #406ED4;
+}
+div.text_hover:hover {
+  color: #406ED4;
+  font-weight: bold;
+} */
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
