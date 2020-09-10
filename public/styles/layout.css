@@ -47,6 +47,18 @@ main {
   padding-left: 10px;
 }
 
+.tweet-lib article header .left-head {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tweet-lib article header .left-head > img {
+  /* width: 70px; */
+  height: 3em;
+  /* object-fit: scale-down; */
+}
+
 .hover {
   box-shadow: 5px 5px 2px 1px #406ED4;
 }
