@@ -5,7 +5,8 @@
  * jQuery's document ready function
  */
 
-// const data = [
+ //Hard-coded database for development purposes
+// const data = [    
 //   {
 //     "user": {
 //       "name": "Newton",
@@ -34,9 +35,8 @@ const renderTweets = (tweets) => { //takes in tweet library array of objs
   for (let tweet of tweets.reverse()) {
     
     let allTweets = '';
-    // console.log(tweet);
     allTweets = createTweetElement(tweet);
-    $('.tweet-lib').append(allTweets); // returns tweet article containing
+    $('.tweet-lib').append(allTweets); 
     
   }
   $('.t_display').mouseover(function() {
@@ -77,9 +77,6 @@ const createTweetElement = (tweet) => {
 
   `;
   return caw;
-  // let $tweet = /* Your code for creating the tweet element */
-  // // ...          ????????
-  // return $tweet;
   
 }
 
@@ -91,42 +88,34 @@ $(document).ready( () => {
   const loadTweets = () => {
     $.ajax({url: "/tweets", method: 'GET'}).then(response => {
       renderTweets(response);
-      
-      //JSON.parse();
     })
   }
   loadTweets();
 
-  // renderTweets(data); //for hardcoded tweet db
-  // $('form').on('submit', (evt) => {
   $('form').submit((evt) => {
     evt.preventDefault();
     // alert($('#tweet-text').val);
-    // console.log($('#tweet-text').val().length);
     $('#vHeader').hide();
 
     if (!$('#tweet-text').val()) {
-      // alert("Please ensure your submission is not empty.");
       $('#vHeader').show(() => {
         $('#vHeader').slideDown("slow");
       }); 
       return;
+    
     } else if ($('#tweet-text').val().length > 140) {
-      // alert("Your chirp must not exceed 140 characters.");
       $('#vHeader').show(() => {
         $('#vHeader').slideDown("slow");
       });
       return;
+    
     } else {
       const formData = $('form').serialize()//converts so the server can understand
       $.ajax({url: "/tweets", method: 'POST', data: formData}).then(response => {
-        // alert($('#tweet-text').val());
         
-        // renderTweets(response);
         $.ajax({url: "/tweets", method: 'GET'}).then(response => {
           $('.tweet-lib').empty();
           renderTweets(response);
-          
         })
         
       })
