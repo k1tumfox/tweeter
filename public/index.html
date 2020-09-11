@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
@@ -40,13 +41,16 @@
       </div>
       <br>
       <div>
-          <h2>Your Name</h2>
+          <h2>Larriette The Duckess of York</h2>
       </div>
     </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <article id="vHeader">
+          <div id="validate">⚠️Invalid tweet, or exceeds 140 characters.⚠️</div>
+        </article>
         <h2>Compose Tweet</h2>
         <form action="/tweets/" method="POST">
           <label for="tweet-text">What are you humming about?</label>

@@ -6,6 +6,23 @@
   
 }
 
+#vHeader {
+  height: 2em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: solid;
+  border-color: red;
+  padding-right: 10px;
+  padding-left: 10px;
+  /* margin: auto; */
+}
+
+#validate {
+  color: red;
+  size: 1.4em;
+  /* margin: auto; */
+}
+
 form {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;

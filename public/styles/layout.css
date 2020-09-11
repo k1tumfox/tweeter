@@ -31,13 +31,13 @@ main {
   margin: auto;
 }
 
-.tweet-lib article {
+.tweet-lib .t_display {
   border: solid;
   display: flex;
   flex-direction: column;
 }
 
-.tweet-lib article header {
+.tweet-lib .t_display header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -47,13 +47,13 @@ main {
   padding-left: 10px;
 }
 
-.tweet-lib article header .left-head {
+.tweet-lib .t_display header .left-head {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.tweet-lib article header .left-head > img {
+.tweet-lib .t_display header .left-head > img {
   /* width: 70px; */
   height: 3em;
   /* object-fit: scale-down; */

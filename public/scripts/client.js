@@ -39,11 +39,11 @@ const renderTweets = (tweets) => { //takes in tweet library array of objs
     $('.tweet-lib').append(allTweets); // returns tweet article containing
     
   }
-  $('article').mouseover(function() {
+  $('.t_display').mouseover(function() {
     $(this).addClass('hover');
     $(this).find('div').addClass('text_hover');
   })
-  $('article').mouseout(function() {
+  $('.t_display').mouseout(function() {
     $(this).removeClass('hover');
     $(this).find('div').removeClass('text_hover');
   })
@@ -60,7 +60,7 @@ const renderTweets = (tweets) => { //takes in tweet library array of objs
 const createTweetElement = (tweet) => {
   
   const caw = `
-    <article>
+    <article class="t_display">
       <header>
         <div class="left-head"><img src="${tweet.user.avatars}"></div>
         <div class="left-head">${tweet.user.name}</div>
@@ -85,6 +85,9 @@ const createTweetElement = (tweet) => {
 
 
 $(document).ready( () => {
+  const errorPrompt = document.getElementById('vHeader');
+  errorPrompt.style.display = "none";
+  
   const loadTweets = () => {
     $.ajax({url: "/tweets", method: 'GET'}).then(response => {
       renderTweets(response);
@@ -100,12 +103,19 @@ $(document).ready( () => {
     evt.preventDefault();
     // alert($('#tweet-text').val);
     // console.log($('#tweet-text').val().length);
-    
+    $('#vHeader').hide();
+
     if (!$('#tweet-text').val()) {
-      alert("Please ensure your submission is not empty.");
+      // alert("Please ensure your submission is not empty.");
+      $('#vHeader').show(() => {
+        $('#vHeader').slideDown("slow");
+      }); 
       return;
     } else if ($('#tweet-text').val().length > 140) {
-      alert("Your chirp must not exceed 140 characters.");
+      // alert("Your chirp must not exceed 140 characters.");
+      $('#vHeader').show(() => {
+        $('#vHeader').slideDown("slow");
+      });
       return;
     } else {
       const formData = $('form').serialize()//converts so the server can understand
