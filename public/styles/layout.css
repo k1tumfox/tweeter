@@ -67,15 +67,28 @@ main {
   font-weight: bold;
 }
 
-/*colon below denotes pseudo code way of implementing hover*/
+/*Mentor tip: colon below denotes pseudo code way of implementing hover*/
 /* article.hover:hover{
-  box-shadow: 5px 5px 2px 1px #406ED4;
+  ...
 }
 div.text_hover:hover {
   color: #406ED4;
   font-weight: bold;
 } */
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+@media only screen and (min-width: 768px) {  /* tablet breakpoint */
+  body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  /* header {
+    width: 30%;
+    float: left;
+  }
+  .container {
+    width: 70%;
+    float: right;
+  } */
+
+}
