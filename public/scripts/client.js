@@ -58,6 +58,9 @@ const renderTweets = (tweets) => { //takes in tweet library array of objs
 }
 
 const createTweetElement = (tweet) => {
+  const dateElap = Date.now();
+  const dateTweeted = tweet.created_at;
+  const date = Math.round((dateElap - dateTweeted) / (1000 * 60 * 60 * 24));
   
   const caw = `
     <article class="t_display">
@@ -70,7 +73,7 @@ const createTweetElement = (tweet) => {
         ${tweet.content.text}
       </p>
       <footer>
-        ${tweet.created_at}
+        ${date} days
       </footer>
     </article>
     <br>

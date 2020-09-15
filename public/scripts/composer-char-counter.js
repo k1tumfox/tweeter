@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-  $('textarea').on('change', function() { 
+  $('textarea').on('keydown', function() { 
     const charRem = 140 - $(this).val().length;
     $(this).parent().find(".counter").val(charRem); 
     
